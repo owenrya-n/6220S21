@@ -26,6 +26,9 @@ public class Constants {
     public static final TalonSRX BLX04 = new TalonSRX(4);
     public static final TalonSRX BRX05 = new TalonSRX(5);
 
+    //Mechanism Motor Control
+    public static final TalonSRX ARM06 = new TalonSRX(6);
+    
     //Sensors
     public static final Encoder LDE01 = new Encoder(0, 1);
     public static final Encoder RDE23 = new Encoder(2, 3);
