@@ -33,4 +33,34 @@ public class Control {
           }
     }
 
+    public static void DriveTrackCamera(){
+        if(Constants.LV==1){
+            PIDController rara = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);// will have to be changed depending on natural dir of rotation
+            try{
+                if(Constants.LX>0){
+                    Constants.RS.set(rara.calculate(Constants.LX, 0));
+                    Constants.LS.set(-rara.calculate(Constants.LX, 0));
+                }
+    
+                if(Constants.LX<0){
+                    Constants.RS.set(-rara.calculate(Constants.LX, 0));
+                    Constants.LS.set(rara.calculate(Constants.LX, 0));
+                }
+            } finally {
+                rara.close();
+              }
+        }
+    }
+
+    public static void DriveFollowCamera(Double distance){
+        PIDController gogo = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);// will have to be changed depending on natural dir of rotation
+        PIDController tata = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);
+        try {
+            Constants.RS.set(gogo.calculate(Constants.LA, distance)+tata.calculate(Constants.LX, 0));
+            Constants.LS.set(gogo.calculate(Constants.LA, distance)-tata.calculate(Constants.LX, 0));
+        } finally {
+            gogo.close();
+            tata.close();
+        }
+    }
 }

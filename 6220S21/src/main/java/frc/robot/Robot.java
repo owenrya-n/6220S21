@@ -30,7 +30,9 @@ public class Robot extends TimedRobot {
     Constants.LDE01.setDistancePerPulse(Constants.DTENC/256.);
     Constants.RDE23.setDistancePerPulse(Constants.DTENC/256.);
     Shuffleboard.getTab("Example tab").add((Sendable) Constants.CCG00);
+
     
+
   }
 
   @Override
@@ -76,10 +78,18 @@ public class Robot extends TimedRobot {
     System.out.println(Constants.MSJ00.getY()*Constants.TeleopMX*SM+","+Constants.MSJ01.getY()*Constants.TeleopMX*SM);
     System.out.println(Constants.RDE23.getRate());
     System.out.println(Constants.LDE01.getRate());
+
     if(Constants.MSJ00.getRawButtonPressed(3)){
       SM=0;
     }
     
+    if(Constants.MSJ00.getRawButtonPressed(4)){
+      Control.DriveFollowCamera(Constants.LSD);
+    }
+
+    if(Constants.MSJ00.getRawButtonPressed(4)){
+      Control.DriveTrackCamera();
+    }
   }
 
   @Override

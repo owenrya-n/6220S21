@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import com.ctre.phoenix.motorcontrol.can.*;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
 
 public class Constants {
 
@@ -37,19 +41,29 @@ public class Constants {
     public static final ADXRS450_Gyro CCG00 = new ADXRS450_Gyro(SPI.Port.kMXP);
 
     //Datastream
+    public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    public static NetworkTableEntry tx = table.getEntry("tx");
+    public static NetworkTableEntry ty = table.getEntry("ty");
+    public static NetworkTableEntry ta = table.getEntry("ta");
+    public static NetworkTableEntry tv = table.getEntry("tv");
+    public static double LX = tx.getDouble(0.0); //target horizontal offset
+    public static double LY = ty.getDouble(0.0);
+    public static double LA = ta.getDouble(0.0); //target area
+    public static double LV = tv.getDouble(0.0); //returns presence
+    public static double LSD = 25; //Limelight ideal Distance Value-- needs to be calibrated
 
     //Statics
     public static final double TeleopMX = .9;
     public static final double DTENC = 1; //feet per encoder rotation
 
     //PID
-    public static final double kP0 = 1;
-    public static final double kI0 = 1;
-    public static final double kD0 = 1;
+    public static final double kP0 = .6;
+    public static final double kI0 = 1.2;
+    public static final double kD0 = 3;
 
-    public static final double kP1 = 1;
-    public static final double kI1 = 1;
-    public static final double kD1 = 1;
+    public static final double kP1 = .6;
+    public static final double kI1 = 1.2;
+    public static final double kD1 = 3;
 
     public static final double kP2 = 1;
     public static final double kI2 = 1;
