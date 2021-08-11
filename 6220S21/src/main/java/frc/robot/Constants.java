@@ -24,12 +24,12 @@ public class Constants {
     public static final XboxController XBC02 = new XboxController(2);
     
     //Chassis Motor Control (top down front north orientation)
-    public static final WPI_TalonSRX FLX00 = new WPI_TalonSRX(0);
-    public static final WPI_TalonSRX FRX01 = new WPI_TalonSRX(1);
-    public static final WPI_TalonSRX MLX02 = new WPI_TalonSRX(2);
-    public static final WPI_TalonSRX MRX03 = new WPI_TalonSRX(3);
-    public static final WPI_TalonSRX BLX04 = new WPI_TalonSRX(4);
-    public static final WPI_TalonSRX BRX05 = new WPI_TalonSRX(5);
+    public static final WPI_VictorSPX FLX00 = new WPI_VictorSPX(0);
+    public static final WPI_VictorSPX FRX01 = new WPI_VictorSPX(1);
+    public static final WPI_VictorSPX MLX02 = new WPI_VictorSPX(2);
+    public static final WPI_VictorSPX MRX03 = new WPI_VictorSPX(3);
+    public static final WPI_VictorSPX BLX04 = new WPI_VictorSPX(4);
+    public static final WPI_VictorSPX BRX05 = new WPI_VictorSPX(5);
     
     public static final SpeedControllerGroup LS = new SpeedControllerGroup(FLX00, MLX02, BLX04);
     public static final SpeedControllerGroup RS = new SpeedControllerGroup(FRX01, MRX03, BRX05);
