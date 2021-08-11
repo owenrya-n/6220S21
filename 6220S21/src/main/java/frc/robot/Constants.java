@@ -20,8 +20,8 @@ public class Constants {
 
     //Control Interface
     public static final Joystick MSJ00 = new Joystick(0);
-    public static final Joystick MSJ01 = new Joystick(1);
-    public static final XboxController XBC02 = new XboxController(2);
+    public static final Joystick MSJ01 = new Joystick(2);
+    public static final XboxController XBC02 = new XboxController(1);
     
     //Chassis Motor Control (top down front north orientation)
     public static final WPI_VictorSPX FLX00 = new WPI_VictorSPX(0);

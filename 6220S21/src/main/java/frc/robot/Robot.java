@@ -73,15 +73,17 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     
-    SM=(Constants.MSJ00.getThrottle()+Constants.MSJ01.getThrottle())/2;
+   /*SM=(Constants.MSJ00.getThrottle()+Constants.MSJ01.getThrottle())/2;
     Chassis.tankDrive(Constants.MSJ00.getY()*Constants.TeleopMX*SM, Constants.MSJ01.getY()*Constants.TeleopMX*SM);
-    System.out.println(Constants.MSJ00.getY()*Constants.TeleopMX*SM+","+Constants.MSJ01.getY()*Constants.TeleopMX*SM);
+    System.out.println(Constants.MSJ00.getY()*Constants.TeleopMX*SM+","+Constants.MSJ01.getY()*Constants.TeleopMX*SM);*/
     System.out.println(Constants.RDE23.getRate());
     System.out.println(Constants.LDE01.getRate());
+    Chassis.tankDrive(SM*Constants.XBC02.getRawAxis(1), SM*Constants.XBC02.getRawAxis(5));
+    System.out.println(SM);
 
-    if(Constants.MSJ00.getRawButtonPressed(3)){
-      SM=0;
-    }
+    while(Constants.XBC02.getRawButtonPressed(6)){
+      SM=1;
+    }/*else{SM=0;}*/
     
     if(Constants.MSJ00.getRawButtonPressed(4)){
       Control.DriveFollowCamera(Constants.LSD);
